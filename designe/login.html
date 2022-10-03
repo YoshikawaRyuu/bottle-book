@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<!-- saved from url=(0022)http://127.0.0.1:8888/ -->
+<html lang="ja"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link href="./login_files/bootstrap.min.css" type="text/css" rel="stylesheet">
+    <link href="./login_files/common.css" type="text/css" rel="stylesheet">
+    <link rel="stylesheet" href="./login_files/all.css">
+    
+<title>ログイン</title>
+
+</head>
+<body>
+    <nav class="navbar navbar-dark bg-dark">
+        <span class="navbar-brand">読書 記録アプリ</span>
+        
+
+    </nav>
+    <main class="bd-content py-5 pl-3" role="main">
+        
+<form action="http://127.0.0.1:8888/login" method="POST">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                
+                <div class="form-group">
+                    <label>ユーザーID</label>
+                    <input class="form-control" type="text" placeholder="hoge@hoge.com" name="user_id" value="">
+                </div>
+                <div class="form-group">
+                    <label>パスワード</label>
+                    <input class="form-control" type="password" name="passwd" value="">
+                </div>
+                <div class="form-group">
+                    <input id="submit" type="submit" class="btn btn-primary" value="ログイン">
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+    </main>
+
+</body></html>

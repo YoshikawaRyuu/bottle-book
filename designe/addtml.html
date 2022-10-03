@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<!-- saved from url=(0025)http://127.0.0.1:8888/add -->
+<html lang="ja"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link href="./addtml_files/bootstrap.min.css" type="text/css" rel="stylesheet">
+    <link href="./addtml_files/common.css" type="text/css" rel="stylesheet">
+    <link rel="stylesheet" href="./addtml_files/all.css">
+    
+<title>書籍情報の登録</title>
+
+</head>
+<body>
+    <nav class="navbar navbar-dark bg-dark">
+        <span class="navbar-brand">読書 記録アプリ</span>
+        
+<a href="http://127.0.0.1:8888/logout">
+<button type="button" class="btn btn-light">ログアウト</button>
+</a>
+
+    </nav>
+    <main class="bd-content py-5 pl-3" role="main">
+        
+<form action="http://127.0.0.1:8888/add" method="POST">
+    
+    <div class="container">
+        <h3>書籍情報の登録</h3>
+        <p>書籍情報を登録します。</p>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>書名</label>
+                    <input class="form-control" type="text" placeholder="例：みんなのPython" name="name" value="">
+                </div>
+                <div class="form-group">
+                    <label>巻数</label>
+                    <input class="form-control" type="text" placeholder="例：上巻" name="volume" value="">
+                </div>
+                <div class="form-group">
+                    <label>著者</label>
+                    <input class="form-control" type="text" placeholder="例：柴田 淳" name="author" value="">
+                </div>
+                <div class="form-group">
+                    <label>出版社</label>
+                    <input class="form-control" type="text" placeholder="例：SBクリエイティブ" name="publisher" value="">
+                </div>
+                <div class="form-group">
+                    <label>メモ</label>
+                    <textarea cols="5" class="form-control" placeholder="" name="memo"></textarea>
+                </div>
+                <div class="form-group">
+                    <a href="http://127.0.0.1:8888/list"><input id="submit" type="button" class="btn btn-dark" value="戻る"></a>
+                    <input id="submit" type="submit" class="btn btn-primary" value="登録">
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</form>
+
+    </main>
+
+</body></html>
