@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <title>登録リスト</title>
+    </head>
+    <body>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>ユーザーID</th>
+                    <th>email</th>
+                    <th>氏</th>
+                    <th>名</th>
+                </tr>
+            </thead>
+            <tbody>
+{% for row in rows %}
+                <tr>
+                    <td>{{ row['user_id'] }}</td>
+                    <td>{{ row['email'] }}</td>
+                    <td>{{ row['user_shi'] }}</td>
+                    <td>{{ row['user_mei'] }}</td>
+                </tr>
+{% endfor %}
+            </tbody>
+        </table>
+    </body>
+</html>
