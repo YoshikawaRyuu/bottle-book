@@ -17,7 +17,6 @@ DB_NAME = 'book_data'
 DB_USER = 'book_userY'
 DB_PASS = 'ryu0110'
 
-#testing git
 def get_connection():
     '''
     データベースの接続を行う
