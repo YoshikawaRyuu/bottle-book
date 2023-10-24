@@ -43,11 +43,11 @@ def add():
     #POSTされた場合
     elif request.method == 'POST':
         #POST値の取得
-        form['name'] = request.forms.decode().get('name')
-        form['volume'] = request.forms.decode().get('volume')
-        form['author'] = request.forms.decode().get('author')
-        form['publisher'] = request.forms.decode().get('publisher')
-        form['memo'] = request.forms.decode().get('memo')
+        form['name'] = request.forms.decode().getunicode('name')
+        form['volume'] = request.forms.decode().getunicode('volume')
+        form['author'] = request.forms.decode().getunicode('author')
+        form['publisher'] = request.forms.decode().getunicode('publisher')
+        form['memo'] = request.forms.decode().getunicode('memo')
         registId = ""
         #idが指定されている場合
         if request.forms.decode().get('id') is not None:
@@ -84,12 +84,12 @@ def regist():
     #認証確認
     auth.check_login()
     #データ受取
-    name = request.forms.get('name')
-    volume = request.forms.get('volume')
-    author = request.forms.get('author')
-    publisher = request.forms.get('publisher')
-    memo = request.forms.get('memo')
-    registId = request.forms.get('id')
+    name = request.forms.getunicode('name')
+    volume = request.forms.getunicode('volume')
+    author = request.forms.getunicode('author')
+    publisher = request.forms.getunicode('publisher')
+    memo = request.forms.getunicode('memo')
+    registId = request.forms.getunicode('id')
 
     if request.forms.get('next') == 'back':
         #確認画面から戻るボタンを押す
