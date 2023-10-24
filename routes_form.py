@@ -121,7 +121,7 @@ def regist():
             connection.add(books)
             connection.commit()
             connection.close()
-            redirect('/list') #一覧画面に遷移
+        redirect('/list') #一覧画面に遷移
 
 #リスト画面から削除ボタンが押される
 @app.route('/delete/<dataId>')
