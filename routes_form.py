@@ -97,4 +97,41 @@ def regist():
         response.status = 307
         response.set_header("Location", '/add')
         return response
-    
+    else:
+        if registId is not None:
+            #更新処理
+            books = connection.query(Books).filter\
+                (Books.id_==registId).first()
+            books.name = name
+            books.volume = volume
+            books.author = author
+            books.publisher = publisher
+            books.memo = memo
+            connection.commit()
+            connection.close()
+        else:
+            #登録処理
+            books = Books(
+                name = name,
+                volume = volume,
+                author = author,
+                publisher = publisher,
+                memo = memo,
+                delFlg = False)
+            connection.add(books)
+            connection.commit()
+            connection.close()
+            redirect('/list') #一覧画面に遷移
+
+#リスト画面から削除ボタンが押される
+@app.route('/delete/<dataId>')
+def delete(dataId):
+    #認証確認
+    auth.check_login()
+    #論理削除を実行
+    book = connection.query(Books).filter\
+        (Books.id_==dataId).first()
+    book.delFlg = True
+    connection.commit()
+    connection.close()
+    redirect('/list')
