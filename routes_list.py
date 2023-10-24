@@ -26,5 +26,5 @@ def list():
                                  Books.publisher, Books.memo,
                                  Books.id_)\
             .filter(Books.delFlg == False).all()
-    headers = ['署名', '巻数', '著者', '出版社', 'メモ', '操作']
+    headers = ['書名', '巻数', '著者', '出版社', 'メモ', '操作']
     return template('list.html', bookList=bookList, headers=headers)
