@@ -135,8 +135,8 @@ def regist():
             con.commit()
         redirect('/add')
                 
-@app.route('/list')
-def list():
+@app.route('/user_list')
+def user_list():
     sql = """SELECT user_id, email, user_shi, \
         user_mei FROM book_user \
         WHERE del = false \
@@ -148,7 +148,7 @@ def list():
             rows = cur.fetchall()
             #下記の内包表記を挟む必要がある
             rows = [dict(row) for row in rows]
-    return template('list.html', rows=rows)
+    return template('user_list.html', rows=rows)
 
 if __name__ == '__main__':
     run(app=app, host='0.0.0.0', port=8889, reloader=True, debug=True)
