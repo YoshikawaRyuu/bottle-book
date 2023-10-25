@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %}
+<title>確認</title>
+{% endblock %}
+{% block logout_btn %}
+{% endblock %}
+{% block content %}
+<form action="/user_regist" method="post">
+    ユーザーID:{{form['user_id']}}<br />
+    パスワード:{{form['passwd']}}<br />
+    email:{{form['email']}}<br />
+    氏:{{form['user_shi']}}<br />
+    名:{{form['user_mei']}}<br />
+    <input type="hidden" name="user_id" value="{{form['user_id']}}" />
+    <input type="hidden" name="passwd" value="{{form['passwd']}}" />
+    <input type="hidden" name="email" value="{{form['email']}}" />
+    <input type="hidden" name="user_shi" value="{{form['user_shi']}}" />
+    <input type="hidden" name="user_mei" value="{{form['user_mei']}}" />
+    <input type="submit" value="back" name="next"/>&nbsp;&nbsp;
+    <input type="submit" value="regist" name="next"/>
+</form>
+{% endblock %}

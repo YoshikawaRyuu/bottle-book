@@ -10,7 +10,7 @@
         <div class="row">
             <div class="col-md-6">
                 {% if error %}
-                    <p class="error-message"></p>
+                    <p class="error-message">{{error}}</p>
                 {% endif %}
                 <div class="form-group">
                     <label>ユーザーID</label>
@@ -26,5 +26,8 @@
             </div>
         </div>
     </div>
+</form>
+<form style="margin-left: 170px" action="user_add" method="GET">
+    <input id="submit" type="submit" class="btn btn-primary" value="サインアップ"/>
 </form>
 {% endblock %}

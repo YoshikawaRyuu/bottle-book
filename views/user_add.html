@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block title %}
+<title>登録フォーム</title>
+{% endblock %}
+{% block logout_btn %}
+{% endblock %}
+{% block content %}
+<form action="user_add" method="POST">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                {% if error %}
+                    <p class="error-message"></p>
+                {% endif %}
+                <div class="form-group">
+                    <label>ユーザーID</label>
+                    <input class="form-control" type="text" name="user_id" value="" /><br />
+                </div>
+                <div class="form-group">
+                    <label>パスワード</label>
+                    <input class="form-control" type="text" name="passwd" value="" /><br />
+                </div>
+                <div class="form-group">
+                    <label>email</label>
+                    <input class="form-control" type="text" placeholder="hoge@hoge.com" name="email" value="" /><br />
+                </div>
+                <div class="form-group">
+                    <label>氏</label>
+                    <input class="form-control" type="text" name="user_shi" value="" /><br />
+                </div>
+                <div class="form-group">
+                    <label>名</label>
+                    <input class="form-control" type="text" name="user_mei" value="" /><br />
+                </div>
+                <div class="form-group">
+                    <a href="/"><input id="submit" class="btn btn-primary" type="button" value="戻る" name="back"/></a>
+                    
+                    <input id="submit" class="btn btn-primary" type="submit" value="登録" name="text"/>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+{% endblock %}

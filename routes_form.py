@@ -5,7 +5,7 @@ from bottle import Bottle, jinja2_template as template,\
     request, redirect
 from bottle import response
 import routes
-from models import connection, Books
+from models import connection, Books,BookUser
 from utils.util import Utils
 from utils.auth import Auth
 
@@ -135,3 +135,55 @@ def delete(dataId):
     connection.commit()
     connection.close()
     redirect('/list')
+
+@app.route('/user_add', method=['GET','POST'])
+def user_add():
+    registId = ""
+    form = {}
+    kind = "ユーザー登録"
+    if request.method == 'GET':
+        #フォーム画面表示処理
+        return template('user_add.html'
+                , form=form
+                , kind=kind)
+    #POSTされた場合
+    elif request.method == 'POST':
+        #POST値の取得
+        form['user_id'] = request.forms.decode().getunicode('user_id')
+        form['passwd'] = request.forms.decode().getunicode('passwd')
+        form['email'] = request.forms.decode().getunicode('email')
+        form['user_shi'] = request.forms.decode().getunicode('user_shi')
+        form['user_mei'] = request.forms.decode().getunicode('user_mei')
+        if request.forms.get('next') == 'back':
+            return template('user_add.html',form=form, kind=kind)
+        
+        return template('user_regist.html', form=form, kind=kind)
+
+@app.route('/user_regist', method=["POST"])
+def user_regist():
+    if request.forms.get('next') == 'back':
+        #確認画面から戻るボタンを押す
+        #登録フォームに戻る
+        response.status = 307
+        response.set_header("Location", '/user_add')
+        return response
+    else:
+        #フォームから値を取得する
+        user_id = request.forms.decode().get('user_id')
+        passwd = request.forms.decode().get('passwd')
+        email = request.forms.decode().get('email')
+        user_shi = request.forms.decode().get('user_shi')
+        user_mei = request.forms.decode().get('user_mei')
+                
+        book_user = BookUser(
+                user_id = user_id,
+                passwd = passwd,
+                email = email,
+                user_shi = user_shi,
+                user_mei = user_mei,
+                delFlg = False)
+        connection.add(book_user)
+        connection.commit()
+        connection.close()
+        
+        redirect('/')
