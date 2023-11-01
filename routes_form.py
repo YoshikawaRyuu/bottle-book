@@ -5,7 +5,7 @@ from bottle import Bottle, jinja2_template as template,\
     request, redirect
 from bottle import response
 import routes
-from models import connection, Books,BookUser
+from models import connection, Books, BookUser
 from utils.util import Utils
 from utils.auth import Auth
 
